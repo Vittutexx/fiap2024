@@ -1,39 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {StatusBar, Text, View} from 'react-native';
 
-export default function App() {
+
+
+export default class App extends React.Component {
+  render() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Vitor Teixeira Silva RM: 552228 - 2TDSS</Text>
-      <Text style={styles.trabalhadores}>Trabalhadores do mundo inteiro, uni-vos! ☭</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+      <View>
+        <View style={{backgroundColor: 'crimson', height: 200, width: 200}}></View>
+        <View style={{alignSelf: 'center', backgroundColor: 'cornflowerblue', borderRadius: 100, height: 200, marginVertical: 20, width: 200}}></View>
+        <View style={{alignSelf: 'center', backgroundColor: 'greenyellow', alignSelf: 'flex-end', height: 200, justifyContent: 'center', width: 300}}>
+          <Text>Texto de uma View</Text>
+        </View>
+        <StatusBar style="light" />
+      </View>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    borderWidth: 3,
-    borderColor: '#F5DD61',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    backgroundColor: 'black',
-    padding: 10,
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 10,
-  },
-  trabalhadores: {
-    marginTop: 10,
-    color: '#F5DD61',
-    fontWeight: 'bold',
-  },
-});
