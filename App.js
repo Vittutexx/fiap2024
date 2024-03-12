@@ -1,19 +1,32 @@
-import React from 'react';
-import {StatusBar, Text, View} from 'react-native';
+import  { StatusBar } from 'expo-status-bar';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 
 
-export default class App extends React.Component {
-  render() {
+export default function App(){
+
   return (
-      <View>
-        <View style={{backgroundColor: 'crimson', height: 200, width: 200}}></View>
-        <View style={{alignSelf: 'center', backgroundColor: 'cornflowerblue', borderRadius: 100, height: 200, marginVertical: 20, width: 200}}></View>
-        <View style={{alignSelf: 'center', backgroundColor: 'greenyellow', alignSelf: 'flex-end', height: 200, justifyContent: 'center', width: 300}}>
-          <Text>Texto de uma View</Text>
-        </View>
-        <StatusBar style="light" />
+      <View style={styles.container}>
+        <Text>Login</Text>
+        <TextInput
+        stakeholder = "Informe seu login"
+        value = "FIAP"
+        placeholderTextColor = '#999' />
+        <Text>Senha</Text>
+        <TextInput 
+        placeholder='Informe sua senha'
+        value="palmeirasnaotemmundial"
+        placeholderTextColor={'#999'} />
+        <StatusBar style="auto" />
       </View>
     );
-  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
