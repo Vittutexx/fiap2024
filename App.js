@@ -9,10 +9,10 @@ export default function App(){
   const [velocidade, setVelocidade] = useState('');
   const [tempo, setTempo] = useState('');
 
-  function calcularDistancia(velocidade, kilometros){
+  function calcularDistancia(velocidade, tempo){
 
-    let distancia = velocidade * kilometros;
-    alert('A distância percorrida foi de: ' + distancia + ' kilometros');
+    let distancia = velocidade * tempo;
+    alert('A distância percorrida foi de: ' + distancia + ' kilometros por hora.');
   }
 
 
