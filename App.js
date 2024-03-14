@@ -1,25 +1,18 @@
 import  { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View, Button} from 'react-native';
 
 
 
 export default function App(){
 
-  const [login, setLogin] = useState('');
-  const [senha, setSenha] = useState('');
+  const [velocidade, setVelocidade] = useState('');
+  const [tempo, setTempo] = useState('');
 
-  function validarLogin(login, senha){
-    alert.alert(login);
+  function calcularDistancia(velocidade, kilometros){
 
-    const loginPadrao = "FIAP";
-    const senhaPadrao = "palmeirassemmundial";
-
-    if (login == loginPadrao && senha == senhaPadrao){
-      console.warn("Login efetuado com sucesso!");
-    } else {
-      console.warn("Não foi possivel efetuar o login.");
-    }
+    let distancia = velocidade * kilometros;
+    alert('A distância percorrida foi de: ' + distancia + ' kilometros');
   }
 
 
@@ -27,27 +20,35 @@ export default function App(){
 
   return (
       <View style={styles.container}>
-        <Text>Login</Text>
+
+
+        <Text>Velocidade</Text>
         <TextInput 
         style={styles.input}
-        stakeholder = "Informe seu login"
-        value = {login}
+        placeholder = "Informe a velocidade (em kilometros)"
+        value = {velocidade}
         placeholderTextColor = '#999'
-        onChangeText = { (e) => setLogin(e)} />
+        onChangeText = { (e) => setVelocidade(e)} 
+        />
         
 
-        <Text>Senha</Text>
+        <Text>Tempo</Text>
         <TextInput 
         style={styles.input}
-        placeholder='Informe sua senha'
-        value={senha}
+        placeholder='Informe o tempo (em horas)'
+        value={tempo}
         placeholderTextColor={'#999'}
-        onChangeText = { (e) => setSenha(e)} />
+        onChangeText = { (e) => setTempo(e)} 
+        />
         
 
         <Button
-          title = "Efetuar Login"
-          onPress = {(e) =>validarLogin(login, senha)} />
+          styles = {styles.button}
+          title = "Calcular"
+          onPress = {() => {
+            calcularDistancia(velocidade, tempo)
+          }}
+        />
 
         <StatusBar style="auto" />
       </View>
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 5
   },
   input:{
     borderWidth: 1,
