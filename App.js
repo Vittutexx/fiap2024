@@ -1,19 +1,42 @@
-import React from 'react';
-import {StatusBar, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import {StatusBar, Text, View, Modal, TouchableOpacity} from 'react-native';
 
 
 
-export default class App extends React.Component {
-  render() {
+
+
+export default function App(){
+const [modalVisible, setModalVisible] = useState(false)
   return (
       <View>
-        <View style={{backgroundColor: 'crimson', height: 200, width: 200}}></View>
-        <View style={{alignSelf: 'center', backgroundColor: 'cornflowerblue', borderRadius: 100, height: 200, marginVertical: 20, width: 200}}></View>
-        <View style={{alignSelf: 'center', backgroundColor: 'greenyellow', alignSelf: 'flex-end', height: 200, justifyContent: 'center', width: 300}}>
-          <Text>Texto de uma View</Text>
-        </View>
-        <StatusBar style="light" />
+        <Modal
+        animationType='slide'
+        transparent = {true}
+        visible = {modalVisible}
+        onRequestClose={() => {setModalVisible(modalVisible)}}>
+            <View style = {[style.container, {backgroundColor: 'lightseagreen'}]}>
+                <Text>Exemplo de Modal</Text>
+                  <TouchableOpacity>
+                  onPress = {() => setModalVisible(false)}
+                    <Text>Fechar</Text>
+                  </TouchableOpacity>
+            </View>
+        </Modal>
+        <TouchableOpacity>
+        onPress = {() =>setModalVisible(true)}
+          <Text>Clique para abrir o modal</Text>
+        </TouchableOpacity>
+        <StatusBar style="auto"/>
       </View>
-    );
+        );
   }
-}
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
+  });
+  
