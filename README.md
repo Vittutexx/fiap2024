@@ -1,7 +1,7 @@
-#Integrantes do Grupo
+# Integrantes do Grupo
 
 
-Ronald de Oliveira Farias
-Gustavo Carvalho Noia
-Lucas Serbato de Barros
-Vitor Teixeira Silva
+Ronald de Oliveira Farias <br> 
+Gustavo Carvalho Noia <br>
+Lucas Serbato de Barros <br>
+Vitor Teixeira Silva <br>
